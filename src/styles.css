@@ -1,0 +1,54 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 15px;
+}
+
+.task-field {
+  font-size: 18px;
+  border: none;
+  border-bottom: solid 1px;
+  padding-bottom: 3px;
+}
+
+.save-button {
+  font-size: 18px;
+  border: none;
+  padding: 4px;
+  margin-left: 8px;
+}
+
+.task-card {
+  border: solid 1px #ccc;
+  width: 400px;
+  padding: 15px 15px 0 15px;
+  margin-top: 10px;
+}
+
+.action {
+  margin-top: 10px;
+  background-color: #ccc;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.action > button {
+  background-color: #aaa;
+  border: none;
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+.action > button:hover {
+  background-color: #555;
+  border: none;
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+.tasks-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
