@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "@material-ui/core/Button";
 
 export function Form(props) {
   const { onSave } = props;
@@ -6,20 +7,24 @@ export function Form(props) {
   const [text, setText] = useState("");
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <input
         placeholder="Número do Telefone"
         className="task-field"
-        value = {text || ""}
-        onChange={e => setText(e.currentTarget.value)}
+        value={text || ""}
+        onChange={(e) => setText(e.currentTarget.value)}
       />
-      <button className="save-button" 
-      onClick={() => {
-        setText("");
-        onSave(text);
-      }}>
+      <Button
+        className="save-button"
+        variant="contained"
+        color="primary"
+        onClick={() => {
+          setText("");
+          onSave(text);
+        }}
+      >
         Salvar
-      </button>
+      </Button>
     </form>
   );
 }
