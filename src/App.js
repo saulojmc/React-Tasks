@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
+import { Form } from "./components/form";
+import List from "./components/list";
 
 export default function App() {
   const [tasks, setTask] = useState([]);
@@ -8,50 +10,18 @@ export default function App() {
     setTask([...tasks, task]);
   };
 
+  const deleteTask = index => {
+    let newTasks = [...tasks];
+    newTasks.splice(index, 1)
+    setTask(newTasks);
+  };
+
   return (
     <div className="App">
       <Form onSave={addTask} />
-      <List tasks={tasks} />
+      <List tasks={tasks} deleteTask = {deleteTask}/>
     </div>
   );
 }
 
-export function Form(props) {
-  const { onSave } = props;
 
-  const [text, setText] = useState("");
-
-  return (
-    <div>
-      <input
-        placeholder="Digite o texto da Tarefa"
-        className="task-field"
-        onChange={e => setText(e.currentTarget.value)}
-      />
-      <button className="save-button" onClick={() => onSave(text)}>
-        Salvar
-      </button>
-    </div>
-  );
-}
-
-export function List(props) {
-  const { tasks } = props;
-
-  return (
-    <div className="tasks-list">
-      {tasks.map(task => {
-        return (
-          <div className="task-card">
-            <span>{task}</span>
-
-            <div className="action">
-              <button>Excluir</button>
-              <button>Completa</button>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
